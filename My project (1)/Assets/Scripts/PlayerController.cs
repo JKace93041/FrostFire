@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float gravityValue = -9.81f;
     [SerializeField]
-    private float rotationspeed = 1.8f;
-
+    private float rotationspeed = 5f;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private Transform barrelTransform;
+    [SerializeField]
+    private Transform bulletParent;
+    [SerializeField]
+    private float bulletMissDistance = 25f;
 
     private CharacterController controller;
     private PlayerInput PlayerInput;
@@ -26,15 +34,52 @@ public class PlayerController : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction jumpAction;
+    private InputAction shootAction;
 
-    private void Start()
+    private void Awake()
     {
         PlayerInput = GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
-        moveAction = PlayerInput.actions["Move"];        
-       jumpAction = PlayerInput.actions["Jump"];
+        moveAction = PlayerInput.actions["Move"];
+        jumpAction = PlayerInput.actions["Jump"];
+        shootAction = PlayerInput.actions["Shoot"];
 
+        Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+
+    private void OnEnable()
+    {
+        shootAction.performed += _ => ShootGun();
+    }
+    private void OnDisable()
+    {
+        shootAction.performed -= _ => ShootGun();
+
+    }
+
+    private void ShootGun()
+    {
+        RaycastHit hit;
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, barrelTransform.position, Quaternion.identity, bulletParent);
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity))
+        {
+
+
+            bulletController.target = hit.point;
+            bulletController.hit = true;
+        }
+        else
+        {
+            bulletController.target = cameraTransform.position + cameraTransform.forward * bulletMissDistance;
+            bulletController.hit = false;
+        }
+
+        
+       
     }
 
     void Update()
