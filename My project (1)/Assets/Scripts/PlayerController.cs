@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private Transform bulletParent;
     [SerializeField]
     private float bulletMissDistance = 25f;
+    [SerializeField]
+    private float animationSmoothTime = .1f;
+    [SerializeField]
+    private float animationPlayTransition = .15f;
 
     private CharacterController controller;
     private PlayerInput PlayerInput;
@@ -32,20 +36,37 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private Transform cameraTransform;
 
+    //Cahced Player input action to avoid using string and making mistakes
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction shootAction;
+   
+    
+    private Animator animator;
+    int moveXAnimatorParameterId;
+    int moveZAnimatorParameterId;
+    int jumpAnimation;
+
+    Vector2 currentAnimationBlendVector;
+    Vector2 animationVelocity;
 
     private void Awake()
     {
         PlayerInput = GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
+       //cached player inputs
         moveAction = PlayerInput.actions["Move"];
         jumpAction = PlayerInput.actions["Jump"];
         shootAction = PlayerInput.actions["Shoot"];
-
+        //locks cursor to middle screen
         Cursor.lockState = CursorLockMode.Locked;
+        //animator
+        animator = GetComponent<Animator>();
+        jumpAnimation = Animator.StringToHash("Jump");
+        moveXAnimatorParameterId = Animator.StringToHash("MoveX");
+        moveZAnimatorParameterId = Animator.StringToHash("MoveZ");
+        
 
     }
 
@@ -85,22 +106,27 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         groundedPlayer = controller.isGrounded;
+        //if grounded no downard force/gravity appiled
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
         Vector2 Input = moveAction.ReadValue<Vector2>();
-        Vector3 move = new Vector3(Input.x, 0, Input.y);
+        currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, Input, ref animationVelocity, animationSmoothTime);
+        Vector3 move = new Vector3(currentAnimationBlendVector.x, 0, currentAnimationBlendVector.y);
         move = move.x * cameraTransform.right.normalized + move.z * cameraTransform.forward.normalized; // moves camera in relation to player 
-        move.y = 0;
+        move.y = 0f;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-      
+        //blends strafe animation
+        animator.SetFloat(moveXAnimatorParameterId, currentAnimationBlendVector.x);
+        animator.SetFloat(moveZAnimatorParameterId, currentAnimationBlendVector.y);
 
         // Changes the height position of the player..
         if (jumpAction.triggered && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.CrossFade(jumpAnimation, animationPlayTransition);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
