@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         shootAction.performed += _ => ShootGun();
+
     }
     private void OnDisable()
     {
