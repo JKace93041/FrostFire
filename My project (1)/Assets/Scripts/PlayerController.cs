@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     private bool isAiming;
     private Transform cameraTransform;
+    private PlayerController playerController;
 
     //Cahced Player input action to avoid using string and making mistakes
     //public InputAction aimAction;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         jumpAction = PlayerInput.actions["Jump"];
         shootAction = PlayerInput.actions["Shoot"];
         Vcam.aimAction = PlayerInput.actions["Aim"];
-        //isAiming = Vcam.aimAction.triggered;
+        
         //locks cursor to middle screen
         Cursor.lockState = CursorLockMode.Locked;
         //animator
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+       
         shootAction.performed += _ => ShootGun();
 
     }
@@ -145,10 +147,10 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        //if (Vcam.aimAction && groundedPlayer)
+        //if (Vcam.aimAction.started && groundedPlayer)
         //{
         //    animator.SetBool("isAiming", true);
-        //    print(isAiming); 
+        //    print(isAiming);
         //}
         //else
         //{

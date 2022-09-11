@@ -23,11 +23,13 @@ public class SwitchVcam : MonoBehaviour
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         aimAction = playerInput.actions["Aim"];
+
     }
 
     private void OnEnable()
     {
         aimAction.performed += _ => StartAim(); //look up what OnEnable and OnDisable
+        
         aimAction.canceled += _ => CancelAim(); //look up what OnEnable and OnDisable
 
     }
