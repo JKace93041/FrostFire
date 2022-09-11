@@ -34,14 +34,16 @@ public class PlayerController : MonoBehaviour
     private PlayerInput PlayerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
+    private bool isAiming;
     private Transform cameraTransform;
 
     //Cahced Player input action to avoid using string and making mistakes
+    //public InputAction aimAction;
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction shootAction;
-   
-    
+    SwitchVcam Vcam = new SwitchVcam();
+
     private Animator animator;
     int moveXAnimatorParameterId;
     int moveZAnimatorParameterId;
@@ -52,13 +54,17 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        
         PlayerInput = GetComponent<PlayerInput>();
         controller = gameObject.GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
        //cached player inputs
+       
         moveAction = PlayerInput.actions["Move"];
         jumpAction = PlayerInput.actions["Jump"];
         shootAction = PlayerInput.actions["Shoot"];
+        Vcam.aimAction = PlayerInput.actions["Aim"];
+        //isAiming = Vcam.aimAction.triggered;
         //locks cursor to middle screen
         Cursor.lockState = CursorLockMode.Locked;
         //animator
@@ -69,6 +75,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
+    
 
 
     private void OnEnable()
@@ -98,13 +105,18 @@ public class PlayerController : MonoBehaviour
             bulletController.target = cameraTransform.position + cameraTransform.forward * bulletMissDistance;
             bulletController.hit = false;
         }
-
+        
         
        
     }
+   
+    
+      
+    
 
     void Update()
     {
+        
         groundedPlayer = controller.isGrounded;
         //if grounded no downard force/gravity appiled
         if (groundedPlayer && playerVelocity.y < 0)
@@ -132,15 +144,27 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        //if (Vcam.aimAction && groundedPlayer)
+        //{
+        //    animator.SetBool("isAiming", true);
+        //    print(isAiming); 
+        //}
+        //else
+        //{
+        //    animator.SetBool("isAiming", false);
+        //    print(isAiming);
+
+
+        //}
 
 
 
         //Rotate towards camera direction
-        
-        Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationspeed * Time.deltaTime);
+
+        //Quaternion targetRotation = Quaternion.Euler(0, cameraTransform.eulerAngles.y, 0);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationspeed * Time.deltaTime);
     }
-        
+
 
 
 

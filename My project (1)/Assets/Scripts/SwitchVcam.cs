@@ -17,7 +17,7 @@ public class SwitchVcam : MonoBehaviour
     private Canvas aimCanvas;
 
     private CinemachineVirtualCamera virtualCamera;
-    private InputAction aimAction;
+    public InputAction aimAction;
 
     private void Awake()
     {
