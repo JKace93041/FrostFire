@@ -8,14 +8,19 @@ public class InputManager : MonoBehaviour
 
 
     PlayerControls controls;
-    PlayerControls.PlayerActions PlayerActions;
+    AnimatorManager animatorManager;
+    //PlayerControls.PlayerActions PlayerActions;
     MovementZ movementZ;
     public Vector2 Input;
+    public float moveAmount;
     public float horizontalInput;
     public float verticalInput;
 
 
-
+    private void Awake()
+    {
+        animatorManager = GetComponent<AnimatorManager>();
+    }
 
     private void OnEnable()
     {
@@ -36,9 +41,17 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = Input.y;
         horizontalInput = Input.x;
+        moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
+        animatorManager.ControlAnimatorValues(0, moveAmount);
+
+
 
     }
+    public void HandleAllInputs()
+    {
 
+        HandleMovement();
+    }
     //private void Update()
     //{
     //    movementZ.ReceiveInput(Input);
