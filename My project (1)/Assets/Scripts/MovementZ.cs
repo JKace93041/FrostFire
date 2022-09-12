@@ -5,13 +5,21 @@ using UnityEngine.InputSystem;
 
 public class MovementZ : MonoBehaviour
 {
-    
+    public AnimatorManager animatorManager;
     InputManager inputManager;
     private PlayerInput PlayerInput;
     private InputAction moveAction;
-    Vector3 moveDirection;
+    private InputAction jumpAction;
+    Vector3 move2Direction;
     Transform cameraObject;
+    public bool groundedPlayer;
+    private Vector3 playerVelocity;
+    public Vector2 Input;
+    public bool isJumping;
+    public float jumpingVelocity;
     public float movementSpeed = 7f;
+    private float gravityValue = -9.81f;
+    private float jumpHeight = 1.0f;
     public float walkingspeed = 1.5f;
     public float sprintSpeed = 7f;
     public float rotationSpeed = 15f;
@@ -21,10 +29,13 @@ public class MovementZ : MonoBehaviour
     private void Awake()
    {
        inputManager = GetComponent<InputManager>();
+        animatorManager = GetComponent<AnimatorManager>();
         characterController = GetComponent<CharacterController>();
+        PlayerInput = GetComponent<PlayerInput>();
         cameraObject = Camera.main.transform;
-       
-       
+        jumpAction = PlayerInput.actions["Jump"];
+        moveAction = PlayerInput.actions["Move"];
+
 
     }
 
@@ -33,30 +44,58 @@ public class MovementZ : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+        HandleJump();
+
 
     }
 
     private void HandleMovement()
     {
+
+        if (isJumping)
+        {
+            return;
+        }
+        groundedPlayer = characterController.isGrounded;
+        if (groundedPlayer)
+        {
+            print("CharacterController is grounded");
+        }
+        else
+        {
+            print("CharacterController is Not grounded");
+        }
         
-       
-        moveDirection = cameraObject.forward.normalized * inputManager.verticalInput;
-        moveDirection = moveDirection + cameraObject.right.normalized * inputManager.horizontalInput;
-        
-        moveDirection.y = 0f;
+        //if grounded no downard force/gravity appiled
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+        Input = moveAction.ReadValue<Vector2>();
+        inputManager.verticalInput = Input.x;
+        inputManager.horizontalInput = Input.y;
+        Vector3 move2Direction = new Vector3(Input.x, 0, Input.y);
+        move2Direction = move2Direction.x * cameraObject.right.normalized + move2Direction.z * cameraObject.forward.normalized;
+        //move2Direction = move2Direction + cameraObject.right.normalized * inputManager.horizontalInput; 
+        //moveDirection = cameraObject.forward.normalized * inputManager.verticalInput;
+        //moveDirection = moveDirection + cameraObject.right.normalized * inputManager.horizontalInput;
+
+        move2Direction.y = 0f;
 
         if (inputManager.moveAmount >= 0.5f)
         {
-            moveDirection = moveDirection * movementSpeed;
+            move2Direction = move2Direction * movementSpeed;
 
         }
         else
         {
-            moveDirection = moveDirection * walkingspeed;
+            move2Direction = move2Direction * walkingspeed;
         }
-        Vector3 movementvelocity = moveDirection;
-        
-        characterController.Move(movementvelocity * Time.deltaTime );
+        Vector3 movementvelocity = move2Direction;
+        characterController.Move(movementvelocity * Time.deltaTime);
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        characterController.Move(playerVelocity * Time.deltaTime);
+       
 
 
 
@@ -184,24 +223,65 @@ public class MovementZ : MonoBehaviour
     private void HandleRotation()
     {
 
-        Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObject.forward * inputManager.verticalInput;
-        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
-        targetDirection.Normalize();
-        targetDirection.y = 0;
-        if (targetDirection ==Vector3.zero)
+
+
+        if (isJumping)
         {
-            targetDirection = transform.forward;
+            return;
         }
 
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        transform.rotation = playerRotation;
+        Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+
+        //Vector3 targetDirection = Vector3.zero;
+        //targetDirection = cameraObject.forward * inputManager.verticalInput;
+        //targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
+        //targetDirection.Normalize();
+        //targetDirection.y = 0;
+        //if (targetDirection ==Vector3.zero)
+        //{
+        //    targetDirection = transform.forward;
+        //}
+
+        //Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        //Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        //transform.rotation = playerRotation;
+
+    }
+    public void HandleJump()
+    {
+
+        if (inputManager.Jump_Input)
+        {
+            if (jumpAction.triggered &&groundedPlayer)
+            {
+                
+
+                jumpingVelocity = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                playerVelocity = move2Direction;
+                playerVelocity.y = jumpingVelocity;
+                animatorManager.animator.CrossFade(animatorManager.jumpAnimation, animatorManager.animationPlayTransition);
+            }
+            inputManager.Jump_Input = false;
+        }
+
+        //if (jumpAction.triggered && groundedPlayer)
+        //{
+           
+            
+        //    animatorManager.animator.CrossFade(animatorManager.jumpAnimation , animatorManager.animationPlayTransition);
+            
+        //    float jumpingVelocity = Mathf.Sqrt(-2 * gravityValue * jumpHeight);
+        //    Vector3 playerVelocity = move2Direction;
+        //    playerVelocity.y = jumpingVelocity;
+
+            
+        //}
 
     }
 
-
-    }
+}
 
 
 

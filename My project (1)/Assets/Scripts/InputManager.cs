@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,11 +16,12 @@ public class InputManager : MonoBehaviour
     public float moveAmount;
     public float horizontalInput;
     public float verticalInput;
-
+    public bool Jump_Input;
 
     private void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
+        movementZ = GetComponent<MovementZ>();
     }
 
     private void OnEnable()
@@ -29,6 +31,7 @@ public class InputManager : MonoBehaviour
             controls = new PlayerControls();
 
             controls.Player.Move.performed += ctx => Input = ctx.ReadValue<Vector2>();
+            controls.Player.Jump.performed += ctx => Jump_Input = true;
            
         }
         controls.Enable();
@@ -51,7 +54,20 @@ public class InputManager : MonoBehaviour
     {
 
         HandleMovement();
+        HandleJumpingInput();
+      
     }
+
+    private void HandleJumpingInput()
+    {
+
+        Jump_Input = true;
+        
+       
+            
+    }
+
+
     //private void Update()
     //{
     //    movementZ.ReceiveInput(Input);

@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
 {
-    private Animator animator;
+   public  Animator animator;
+    private MovementZ movementZ;
     int horizontalParameterID;
     int verticalparameterID;
+   public int jumpAnimation;
+    public Vector2 currentAnimationBlendVector;
+    public Vector2 animationVelocity;
+    private float animationSmoothTime = .1f;
+    public float animationPlayTransition = .15f;
+
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         horizontalParameterID = Animator.StringToHash("Horizontal");
         verticalparameterID = Animator.StringToHash("Vertical");
+        jumpAnimation = Animator.StringToHash("Jump");
+        movementZ = GetComponent<MovementZ>();
     }
     public void ControlAnimatorValues(float horizontalMovement, float verticalMovement)
     {
@@ -68,8 +77,9 @@ public class AnimatorManager : MonoBehaviour
         }
         #endregion
         //blends animations
-        animator.SetFloat(horizontalParameterID, snappedHorizontal, 0.1f, Time.deltaTime);
-        animator.SetFloat(verticalparameterID, snappedVertical, 0.1f, Time.deltaTime);
+        currentAnimationBlendVector = Vector2.SmoothDamp(currentAnimationBlendVector, movementZ.Input, ref animationVelocity, animationSmoothTime);
+        animator.SetFloat(horizontalParameterID,currentAnimationBlendVector.x);
+        animator.SetFloat(verticalparameterID, currentAnimationBlendVector.y);
 
     }
 }
