@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class AnimatorManager : MonoBehaviour
 {
+    public bool isAiming = true;
+    public bool isShooting = true;
    public  Animator animator;
     private MovementZ movementZ;
     int horizontalParameterID;
     int verticalparameterID;
    public int jumpAnimation;
+    public int dodgeAnimation;
+    public int recoilAnimation;
+    
     public Vector2 currentAnimationBlendVector;
     public Vector2 animationVelocity;
     private float animationSmoothTime = .1f;
@@ -21,6 +26,8 @@ public class AnimatorManager : MonoBehaviour
         horizontalParameterID = Animator.StringToHash("Horizontal");
         verticalparameterID = Animator.StringToHash("Vertical");
         jumpAnimation = Animator.StringToHash("Jump");
+        dodgeAnimation = Animator.StringToHash("Dodge");
+        recoilAnimation = Animator.StringToHash("Standing Aim Recoil");
         movementZ = GetComponent<MovementZ>();
     }
     public void ControlAnimatorValues(float horizontalMovement, float verticalMovement)

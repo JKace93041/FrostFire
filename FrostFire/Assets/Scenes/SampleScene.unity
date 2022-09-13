@@ -4013,7 +4013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147942140}
   m_LocalRotation: {x: 0.04790553, y: 0.10102578, z: -0.00487029, w: 0.99371785}
-  m_LocalPosition: {x: 0.13930058, y: 0.017191833, z: -2.849437}
+  m_LocalPosition: {x: -0.023161797, y: 0.017191833, z: -2.8160589}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4538,7 +4538,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.13930058
+      value: -0.023161797
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -4548,7 +4548,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.849437
+      value: -2.8160589
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -4845,7 +4845,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cbc06d417bde2e64a8b53affaf3b66f5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -4964,10 +4964,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc485c6e185f444a32dc8402b2b732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatorManager: {fileID: 0}
+  animatorManager: {fileID: 1725315463}
   groundedPlayer: 0
   Input: {x: 0, y: 0}
   isJumping: 0
+  jumpingVelocity: 0
   movementSpeed: 7
   walkingspeed: 1.5
   sprintSpeed: 7
@@ -4989,6 +4990,9 @@ MonoBehaviour:
   horizontalInput: 0
   verticalInput: 0
   Jump_Input: 0
+  Dodge_Input: 0
+  Aim_Input: 0
+  Shoot_Input: 0
 --- !u!114 &1725315462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5013,8 +5017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef58b2bf66d39643a69d12ec05e31b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  isAiming: 0
+  animator: {fileID: 1725315457}
   jumpAnimation: 0
+  dodgeAnimation: 0
   currentAnimationBlendVector: {x: 0, y: 0}
   animationVelocity: {x: 0, y: 0}
   animationPlayTransition: 0.15
@@ -5321,15 +5327,6 @@ MonoBehaviour:
   pritorityBoostAmount: 10
   thirdPersonCanvas: {fileID: 1138167034}
   aimCanvas: {fileID: 1811747136}
-  aimAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!4 &1984332457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
@@ -5369,22 +5366,22 @@ PrefabInstance:
     - target: {fileID: 9054737104523832140, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_BiasY
-      value: -0.0000007250076
+      value: -0.0000009043106
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104523832140, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_ScreenX
-      value: 0
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104523832140, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_ScreenY
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104523832140, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_CameraDistance
-      value: 0.82
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104523832141, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5439,17 +5436,17 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.49015418
+      value: 0.13827766
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3336898
+      value: 0.24730195
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9620855
+      value: -1.1854949
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}

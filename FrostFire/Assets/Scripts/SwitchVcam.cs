@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class SwitchVcam : MonoBehaviour
 {
-
+   
     [SerializeField]
     private PlayerInput playerInput;
     [SerializeField]
@@ -15,12 +15,13 @@ public class SwitchVcam : MonoBehaviour
     private Canvas thirdPersonCanvas;
     [SerializeField] 
     private Canvas aimCanvas;
-
+    
     private CinemachineVirtualCamera virtualCamera;
-    public InputAction aimAction;
+    private InputAction aimAction;
 
     private void Awake()
     {
+        
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
         aimAction = playerInput.actions["Aim"];
 
@@ -43,6 +44,7 @@ public class SwitchVcam : MonoBehaviour
     private void StartAim()
     {
         virtualCamera.Priority += pritorityBoostAmount;
+       
         aimCanvas.enabled = true;
         thirdPersonCanvas.enabled = false;
     }
@@ -50,6 +52,8 @@ public class SwitchVcam : MonoBehaviour
     private void CancelAim()
     {
         virtualCamera.Priority -= pritorityBoostAmount;
+       
+
         aimCanvas.enabled = false;
         thirdPersonCanvas.enabled = true;
     }

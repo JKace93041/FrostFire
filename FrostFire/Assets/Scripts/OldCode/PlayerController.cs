@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         moveAction = PlayerInput.actions["Move"];
         jumpAction = PlayerInput.actions["Jump"];
         shootAction = PlayerInput.actions["Shoot"];
-        Vcam.aimAction = PlayerInput.actions["Aim"];
+        //Vcam.aimAction = PlayerInput.actions["Aim"];
         
         //locks cursor to middle screen
         Cursor.lockState = CursorLockMode.Locked;
