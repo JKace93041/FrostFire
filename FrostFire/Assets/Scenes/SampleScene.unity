@@ -4013,7 +4013,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147942140}
   m_LocalRotation: {x: 0.04790553, y: 0.10102578, z: -0.00487029, w: 0.99371785}
-  m_LocalPosition: {x: -0.023161797, y: 0.017191833, z: -2.8160589}
+  m_LocalPosition: {x: 0.04083661, y: 0.017191833, z: -2.8292074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4538,7 +4538,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.023161797
+      value: 0.04083661
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -4548,7 +4548,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.8160589
+      value: -2.8292074
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5018,9 +5018,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAiming: 0
+  isShooting: 0
   animator: {fileID: 1725315457}
   jumpAnimation: 0
   dodgeAnimation: 0
+  recoilAnimation: 0
   currentAnimationBlendVector: {x: 0, y: 0}
   animationVelocity: {x: 0, y: 0}
   animationPlayTransition: 0.15
@@ -5436,7 +5438,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.13827766
+      value: 0.18227656
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5446,7 +5448,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.1854949
+      value: -1.1945345
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
