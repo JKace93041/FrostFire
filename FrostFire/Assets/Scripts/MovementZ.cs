@@ -128,7 +128,7 @@ public class MovementZ : MonoBehaviour
     public void ThrowArrow()
     {
         //RaycastHit hit;
-        GameObject arrow = Instantiate(arrowPrefab, bowTransform.position, arrowPrefab.transform.rotation);
+        GameObject arrow = Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation);
         arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
         //ProjectileController projectile = arrow.GetComponent<ProjectileController>();
         //if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit, Mathf.Infinity))
