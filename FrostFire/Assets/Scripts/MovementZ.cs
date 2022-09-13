@@ -27,6 +27,10 @@ public class MovementZ : MonoBehaviour
     public float walkingspeed = 1.5f;
     public float sprintSpeed = 7f;
     public float rotationSpeed = 15f;
+    private float arrowMissDistance = 25f;
+    public GameObject arrowPrefab;
+    public Transform bowTransform;
+    
     private InputActionReference movementContol;
     CharacterController characterController;
     
@@ -120,6 +124,25 @@ public class MovementZ : MonoBehaviour
       
 
 
+    }
+    public void ThrowArrow()
+    {
+        //RaycastHit hit;
+        GameObject arrow = Instantiate(arrowPrefab, bowTransform.position, arrowPrefab.transform.rotation);
+        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+        //ProjectileController projectile = arrow.GetComponent<ProjectileController>();
+        //if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit, Mathf.Infinity))
+        //{
+
+
+        //    projectile.target = hit.point;
+        //    projectile.hit = true;
+        //}
+        //else
+        //{
+        //    projectile.target = cameraObject.position + cameraObject.forward * arrowMissDistance;
+        //    projectile.hit = false;
+        //}
     }
     public void HandleAllMovement()
     {
