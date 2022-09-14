@@ -77,12 +77,15 @@ public class MovementZ : MonoBehaviour
     private void Aim()
     {
 
-       
-        
-            animatorManager.isAiming = true;
-      
-        animatorManager.animator.SetBool("isAiming", animatorManager.isAiming);
 
+
+      
+   
+            animatorManager.isAiming = true;
+
+            animatorManager.animator.SetBool("isAiming", animatorManager.isAiming);
+        
+       
         if (shootAction.triggered)
         {
             animatorManager.animator.SetBool("isShooting",true ); ;
@@ -247,13 +250,22 @@ public class MovementZ : MonoBehaviour
 
 
 
-        if (isJumping)
+        //if (isJumping)
+        //{
+        //    return;
+        //}
+        if (Input != Vector2.zero || animatorManager.isAiming)
         {
-            return;
-        }
+            print("hi");
+            Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
+            print("hi2");
 
-        Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            print("hi23");
+
+            print("hasTurned");
+        }
+       
 
 
 
@@ -261,7 +273,7 @@ public class MovementZ : MonoBehaviour
     public void HandleJump()
     {
 
-        
+        isJumping = inputManager.Jump_Input;
         
             if (jumpAction.triggered &&groundedPlayer)
             {
