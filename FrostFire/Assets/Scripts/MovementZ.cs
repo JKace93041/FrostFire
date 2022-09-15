@@ -189,16 +189,22 @@ public class MovementZ : MonoBehaviour
     
 
         move2Direction.y = 0f;
-
-        if (inputManager.moveAmount >= 0.5f)
+     
+        if (!animatorManager.isAiming)
         {
             move2Direction = move2Direction * movementSpeed;
+            print(movementSpeed);
+
 
         }
-        else
+        if (animatorManager.isAiming)
         {
             move2Direction = move2Direction * walkingspeed;
+            print(walkingspeed);
         }
+        //{
+        //    move2Direction = move2Direction * walkingspeed;
+        //}
         Vector3 movementvelocity = move2Direction;
         characterController.Move(movementvelocity * Time.deltaTime);
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -256,14 +262,14 @@ public class MovementZ : MonoBehaviour
         //}
         if (Input != Vector2.zero || animatorManager.isAiming)
         {
-            print("hi");
+           
             Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
-            print("hi2");
+          
 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            print("hi23");
+           
 
-            print("hasTurned");
+      
         }
        
 
