@@ -167,9 +167,9 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_ScreenX: 0.303
+  m_ScreenY: 1.5
+  m_CameraDistance: 1.59
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -205,10 +205,10 @@ MonoBehaviour:
   m_RecenterTarget: 0
   m_VerticalAxis:
     Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
+    m_SpeedMode: 1
+    m_MaxSpeed: 0.003
+    m_AccelTime: 0.3
+    m_DecelTime: 0.3
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
@@ -252,6 +252,12 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_ApplyBeforeBody: 0
+--- !u!4 &120104185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9054737104523832138, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143945377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &154342832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: 95cf24206a8c5a54eaf1f3d568a61b45,
@@ -4018,8 +4024,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 6
-    m_Time: 0.1
+    m_Style: 2
+    m_Time: 0.3
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -4795,12 +4801,6 @@ PrefabInstance:
 --- !u!1 &1587699505 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9054737104523832139, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
-    type: 3}
-  m_PrefabInstance: {fileID: 1585117721}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1587699512 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9054737104523832138, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
     type: 3}
   m_PrefabInstance: {fileID: 1585117721}
   m_PrefabAsset: {fileID: 0}
@@ -5718,7 +5718,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716576, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5728,17 +5728,17 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.184
+      value: 0.35008967
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: 0.09742534
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -1.59
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5788,17 +5788,17 @@ PrefabInstance:
     - target: {fileID: 9054737104855716579, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_Priority
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716579, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_ComponentOwner
       value: 
-      objectReference: {fileID: 1587699512}
+      objectReference: {fileID: 120104185}
     - target: {fileID: 9054737104855716579, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 1.840155
+      value: 2.3423674
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716579, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
