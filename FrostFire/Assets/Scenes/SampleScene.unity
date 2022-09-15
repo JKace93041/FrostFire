@@ -3533,12 +3533,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723965962}
-  m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: -0.991, y: 0.064, z: 0.86}
+  m_LocalRotation: {x: 0.7071069, y: 0.7071067, z: -0.000000028622448, w: -0.000000043215287}
+  m_LocalPosition: {x: -0.9910002, y: 0.0639999, z: 0.86000025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1182181036}
   - {fileID: 889270301}
   m_Father: {fileID: 817209075}
   m_RootOrder: 5
@@ -3553,7 +3552,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3c6552221e223334a9ff10d48968d397,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c6552221e223334a9ff10d48968d397,
         type: 3}
@@ -4136,7 +4135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147942140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.184, y: -0.34195948, z: -2.74}
+  m_LocalPosition: {x: 0, y: 0.71804047, z: -2.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4166,14 +4165,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182181035}
-  m_LocalRotation: {x: -0.0000005364417, y: 0.999815, z: -0.000001950189, w: 0.019238776}
-  m_LocalPosition: {x: 0.022, y: 0.999, z: 0.858}
+  m_LocalRotation: {x: 0.7071069, y: 0.7071067, z: -0.000000097540294, w: -0.00000012563731}
+  m_LocalPosition: {x: 0, y: 0.21699949, z: 0.002999727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 723965963}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 177.795, z: 0}
+  m_Father: {fileID: 817209075}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197408366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,12 +4701,12 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.184
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34195948
+      value: 0.71804047
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
@@ -5042,7 +5041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725315449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.184, y: -1.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5070,7 +5069,7 @@ MonoBehaviour:
   rotationspeed: 5
   bulletPrefab: {fileID: 7070826553151954719, guid: b78804cbb2e509b438d3213812e7bbdc,
     type: 3}
-  barrelTransform: {fileID: 889270301}
+  barrelTransform: {fileID: 1182181036}
   bulletParent: {fileID: 1838879211}
   bulletMissDistance: 25
   animationSmoothTime: 0.05
@@ -5268,6 +5267,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 5862166318547596453, guid: 17e13c772bb37f5459bc8d889106bf38,
     type: 3}
   bowTransform: {fileID: 1182181036}
+  arrowParent: {fileID: 1838879211}
 --- !u!114 &1725315461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5733,12 +5733,12 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14527728
+      value: 0.32927728
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09742534
+      value: 1.1574253
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}

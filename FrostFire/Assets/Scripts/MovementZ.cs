@@ -29,7 +29,9 @@ public class MovementZ : MonoBehaviour
     public float rotationSpeed = 15f;
     private float arrowMissDistance = 25f;
     public GameObject arrowPrefab;
+    //public Transform spawnpoint;
     public Transform bowTransform;
+    public Transform arrowParent;
     
     private InputActionReference movementContol;
     CharacterController characterController;
@@ -130,9 +132,26 @@ public class MovementZ : MonoBehaviour
     }
     public void ThrowArrow()
     {
-        //RaycastHit hit;
-        GameObject arrow = Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation);
-        arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+        RaycastHit hit;
+        //spawnpoint.position = bowTransform.position;
+        GameObject arrow = GameObject.Instantiate(arrowPrefab, bowTransform.transform.position, bowTransform.transform.rotation, arrowParent);
+        ProjectileController projectileController = arrow.GetComponent<ProjectileController>();
+        if (Physics.Raycast(cameraObject.position.normalized, cameraObject.forward.normalized, out hit, Mathf.Infinity))
+        {
+            //GameObject arrow = GameObject.Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation , arrowParent);
+            //ProjectileController projectileController = arrow.GetComponent<ProjectileController>();
+            //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
+
+            projectileController.target = hit.point;
+            projectileController.hit = true;
+        }
+        else
+        {
+            projectileController.target = cameraObject.position.normalized + cameraObject.forward.normalized * arrowMissDistance;
+            projectileController.hit = true;
+        }
+        //GameObject arrow = Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation);
+        //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
         //ProjectileController projectile = arrow.GetComponent<ProjectileController>();
         //if (Physics.Raycast(cameraObject.position, cameraObject.forward, out hit, Mathf.Infinity))
         //{
