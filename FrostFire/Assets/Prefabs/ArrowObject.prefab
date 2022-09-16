@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3453335448642381726}
   - component: {fileID: 521178506386071252}
   - component: {fileID: 3899593042437798464}
-  - component: {fileID: 1769299128579658961}
   - component: {fileID: 4708725618305492354}
   m_Layer: 0
   m_Name: ArrowObject
@@ -87,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1769299128579658961
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5862166318547596453}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3326273, y: 4.436197, z: 0.049234}
-  m_Center: {x: -7.4758644, y: 0.5139834, z: 0}
 --- !u!114 &4708725618305492354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,5 +100,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDecal: {fileID: 2170722750374455225, guid: 05fe1bff34e51c243ad7de759b860861,
     type: 3}
-  speed: 50
+  speed: 2
   timeToDestory: 3

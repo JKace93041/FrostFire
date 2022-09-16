@@ -8,7 +8,7 @@ public class ProjectileController : MonoBehaviour
     [SerializeField]
     private GameObject bulletDecal;
     [SerializeField]
-    private float speed = 50f;
+    private float speed = 2f;
     [SerializeField]
     private float timeToDestory = 3f;
 

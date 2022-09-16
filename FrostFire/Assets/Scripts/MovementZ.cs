@@ -133,20 +133,24 @@ public class MovementZ : MonoBehaviour
     public void ThrowArrow()
     {
         RaycastHit hit;
+       
         //spawnpoint.position = bowTransform.position;
-        GameObject arrow = GameObject.Instantiate(arrowPrefab, bowTransform.transform.position, bowTransform.transform.rotation, arrowParent);
+        GameObject arrow = GameObject.Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation, arrowParent);
         ProjectileController projectileController = arrow.GetComponent<ProjectileController>();
-        if (Physics.Raycast(cameraObject.position.normalized, cameraObject.forward.normalized, out hit, Mathf.Infinity))
+        Debug.DrawRay(cameraObject.position.normalized, cameraObject.forward.normalized, Color.green,15f);
+        if (Physics.Raycast(bowTransform.position.normalized, cameraObject.forward.normalized, out hit, Mathf.Infinity))
         {
             //GameObject arrow = GameObject.Instantiate(arrowPrefab, bowTransform.transform.position, arrowPrefab.transform.rotation , arrowParent);
             //ProjectileController projectileController = arrow.GetComponent<ProjectileController>();
             //arrow.GetComponent<Rigidbody>().AddForce(transform.forward * 25f, ForceMode.Impulse);
-
+            
             projectileController.target = hit.point;
             projectileController.hit = true;
         }
         else
         {
+           
+
             projectileController.target = cameraObject.position.normalized + cameraObject.forward.normalized * arrowMissDistance;
             projectileController.hit = true;
         }
