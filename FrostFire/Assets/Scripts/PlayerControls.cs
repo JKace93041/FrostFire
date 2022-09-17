@@ -80,6 +80,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""ebad0640-636e-4ce3-b582-ce034e5261b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,189 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Dodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""957eaaf3-73f3-4df0-9cd5-44de0a5a5521"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PlayerMageMode"",
+            ""id"": ""950f40ca-adae-4044-95c8-5bb747b414a7"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""a85f92d9-faee-49b3-8846-a203f479db70"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""0b24a9fb-2975-4292-ba60-98f57fbccdde"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c94b407-8897-469b-a45b-ad542e7c1bfb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d05a5eb-25b0-47b2-b3bf-b8374c2db550"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Blink"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c999e02-728e-4e5b-a80e-a27bb87692ed"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff4d598c-8819-4b0a-a7b5-ca43f3e144e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""b79e5341-49ea-4dd0-8040-5ca1e733a561"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""458df40e-f6b0-4f7a-99e1-cc127218ded8"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""689a991d-b244-40ca-909f-8d66ff6d9482"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c4e2397c-cce5-4aa1-8412-c98bc99857ed"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c63efd6d-bfab-4fb2-bcfe-954c909236c4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""739dbb8f-b655-43bc-959a-ccf105bd4e40"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b889dc2-8658-4fa8-b3bb-533988a2b873"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de0b6d9e-d37d-4478-a226-b0bba8c308bd"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6451077d-2f00-416d-80e1-a3dbb252a552"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Blink"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a7d82e6-b34d-4c5b-96ae-e1d089ed1312"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +398,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
+        m_Player_SwitchMap = m_Player.FindAction("SwitchMap", throwIfNotFound: true);
+        // PlayerMageMode
+        m_PlayerMageMode = asset.FindActionMap("PlayerMageMode", throwIfNotFound: true);
+        m_PlayerMageMode_Move = m_PlayerMageMode.FindAction("Move", throwIfNotFound: true);
+        m_PlayerMageMode_Look = m_PlayerMageMode.FindAction("Look", throwIfNotFound: true);
+        m_PlayerMageMode_Jump = m_PlayerMageMode.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerMageMode_Shoot = m_PlayerMageMode.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerMageMode_Blink = m_PlayerMageMode.FindAction("Blink", throwIfNotFound: true);
+        m_PlayerMageMode_SwitchMap = m_PlayerMageMode.FindAction("SwitchMap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +472,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Dodge;
+    private readonly InputAction m_Player_SwitchMap;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -281,6 +483,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
+        public InputAction @SwitchMap => m_Wrapper.m_Player_SwitchMap;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +511,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
+                @SwitchMap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,10 +536,86 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
+                @SwitchMap.started += instance.OnSwitchMap;
+                @SwitchMap.performed += instance.OnSwitchMap;
+                @SwitchMap.canceled += instance.OnSwitchMap;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // PlayerMageMode
+    private readonly InputActionMap m_PlayerMageMode;
+    private IPlayerMageModeActions m_PlayerMageModeActionsCallbackInterface;
+    private readonly InputAction m_PlayerMageMode_Move;
+    private readonly InputAction m_PlayerMageMode_Look;
+    private readonly InputAction m_PlayerMageMode_Jump;
+    private readonly InputAction m_PlayerMageMode_Shoot;
+    private readonly InputAction m_PlayerMageMode_Blink;
+    private readonly InputAction m_PlayerMageMode_SwitchMap;
+    public struct PlayerMageModeActions
+    {
+        private @PlayerControls m_Wrapper;
+        public PlayerMageModeActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_PlayerMageMode_Move;
+        public InputAction @Look => m_Wrapper.m_PlayerMageMode_Look;
+        public InputAction @Jump => m_Wrapper.m_PlayerMageMode_Jump;
+        public InputAction @Shoot => m_Wrapper.m_PlayerMageMode_Shoot;
+        public InputAction @Blink => m_Wrapper.m_PlayerMageMode_Blink;
+        public InputAction @SwitchMap => m_Wrapper.m_PlayerMageMode_SwitchMap;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerMageMode; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerMageModeActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerMageModeActions instance)
+        {
+            if (m_Wrapper.m_PlayerMageModeActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
+                @Look.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
+                @Jump.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
+                @Shoot.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
+                @Blink.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
+                @Blink.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
+                @Blink.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
+                @SwitchMap.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
+            }
+            m_Wrapper.m_PlayerMageModeActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
+                @Blink.started += instance.OnBlink;
+                @Blink.performed += instance.OnBlink;
+                @Blink.canceled += instance.OnBlink;
+                @SwitchMap.started += instance.OnSwitchMap;
+                @SwitchMap.performed += instance.OnSwitchMap;
+                @SwitchMap.canceled += instance.OnSwitchMap;
+            }
+        }
+    }
+    public PlayerMageModeActions @PlayerMageMode => new PlayerMageModeActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -342,5 +624,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
+        void OnSwitchMap(InputAction.CallbackContext context);
+    }
+    public interface IPlayerMageModeActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnBlink(InputAction.CallbackContext context);
+        void OnSwitchMap(InputAction.CallbackContext context);
     }
 }

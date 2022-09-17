@@ -14,12 +14,14 @@ public class MovementZ : MonoBehaviour
     private InputAction dodgeAction;
     private InputAction shootAction;
     private InputAction aimAction;
+    private InputAction switchAction;
     Vector3 move2Direction;
     Transform cameraObject;
     public bool groundedPlayer;
     private Vector3 playerVelocity;
     public Vector2 Input;
        public bool isJumping;
+   public bool controlswitch;
     public float jumpingVelocity;
     public float movementSpeed = 7f;
     private float gravityValue = -9.81f;
@@ -48,6 +50,7 @@ public class MovementZ : MonoBehaviour
         dodgeAction = PlayerInput.actions["Dodge"];
         shootAction = PlayerInput.actions["Shoot"];
         aimAction = PlayerInput.actions["Aim"];
+        switchAction = PlayerInput.actions["SwitchMap"];
 
 
        
@@ -55,6 +58,7 @@ public class MovementZ : MonoBehaviour
     }
     private void OnEnable()
     {
+        switchAction.performed += SwitchMap;
         aimAction.performed += _ => Aim();
         aimAction.canceled += _ => StopAim();
         shootAction.performed += _ => ShootBow();
@@ -66,8 +70,32 @@ public class MovementZ : MonoBehaviour
 
     }
 
+    private void SwitchMap(InputAction.CallbackContext context)
+    {
+        
+        if (controlswitch)
+
+        {
+
+            PlayerInput.SwitchCurrentActionMap("Player");
+            controlswitch = false;
+
+        }
+        else 
+        {
+            PlayerInput.SwitchCurrentActionMap("PlayerMageMode");
+
+            controlswitch = true;
+
+          
+
+        }
+       
+    }
+
     private void OnDisable()
     {
+        switchAction.performed -= SwitchMap;
         aimAction.performed -= _ => Aim();
         aimAction.canceled -= _ => StopAim();
         shootAction.canceled -= _ => ShootBow();
@@ -109,7 +137,10 @@ public class MovementZ : MonoBehaviour
         animatorManager.animator.SetBool("isAiming", false);
         animatorManager.animator.SetBool("isShooting", false);
         }
-
+    private void Update()
+    {
+        print(PlayerInput.currentActionMap.ToString());
+    }
     private void ShootBow()
     {
         if (animatorManager.isAiming)
@@ -216,14 +247,14 @@ public class MovementZ : MonoBehaviour
         if (!animatorManager.isAiming)
         {
             move2Direction = move2Direction * movementSpeed;
-            print(movementSpeed);
+            //print(movementSpeed);
 
 
         }
         if (animatorManager.isAiming)
         {
             move2Direction = move2Direction * walkingspeed;
-            print(walkingspeed);
+            //print(walkingspeed);
         }
         //{
         //    move2Direction = move2Direction * walkingspeed;
