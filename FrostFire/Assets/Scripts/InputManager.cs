@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         animatorManager = GetComponent<AnimatorManager>();
         movementZ = GetComponent<MovementZ>();
-        
+        //playerInput.actions.FindActionMap("MageMode").Disable();
 
     }
 
@@ -37,8 +37,12 @@ public class InputManager : MonoBehaviour
         if (controls == null)
         {
             controls = new PlayerControls();
-
+       
             controls.Player.Move.performed += ctx => Input = ctx.ReadValue<Vector2>();
+            controls.MageMode.Move.performed += ctx => Input = ctx.ReadValue<Vector2>();
+            controls.MageMode.SwitchMap.performed += EnterPlayerMode;
+            controls.Player.SwitchMap.performed += EnterMageMode;
+          
             controls.Player.Jump.performed += ctx => Jump_Input = true;
             controls.Player.Dodge.performed += ctx => Dodge_Input = true;
             controls.Player.Shoot.performed += ctx => Shoot_Input = true;
@@ -50,15 +54,39 @@ public class InputManager : MonoBehaviour
         controls.Enable();
     }
 
-   
+    private void EnterMageMode(InputAction.CallbackContext context)
+    {
+        //playerInput.actions.FindActionMap("MageMode").Enable();
+        //playerInput.actions.FindActionMap("Player").Disable();
+        playerInput.SwitchCurrentActionMap("MageMode");
+        print(playerInput.currentActionMap.ToString());
+
+        print("hi");
+
+    }
+
+    private void EnterPlayerMode(InputAction.CallbackContext context)
+    {
+        playerInput.SwitchCurrentActionMap("Player");
+        print(playerInput.currentActionMap.ToString());
+
+        //    playerInput.actions.FindActionMap("Player").Enable();
+
+        //    playerInput.actions.FindActionMap("MageMode").Disable();
+
+        //    //playerInput.SwitchCurrentActionMap("Player");
+        print("bye");
+
+    }
 
     private void OnDisable()
     {
         
         
         controls.Disable();
-        
 
+       controls.MageMode.SwitchMap.performed -= EnterPlayerMode;
+        controls.Player.SwitchMap.performed -= EnterMageMode;
 
 
     }

@@ -194,7 +194,7 @@
             ]
         },
         {
-            "name": "PlayerMageMode",
+            "name": "MageMode",
             "id": "950f40ca-adae-4044-95c8-5bb747b414a7",
             "actions": [
                 {
@@ -245,7 +245,7 @@
                 {
                     "name": "SwitchMap",
                     "type": "Button",
-                    "id": "ff4d598c-8819-4b0a-a7b5-ca43f3e144e8",
+                    "id": "bb68158f-7792-42e8-82f6-18ddb876b806",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -354,8 +354,8 @@
                 },
                 {
                     "name": "",
-                    "id": "8a7d82e6-b34d-4c5b-96ae-e1d089ed1312",
-                    "path": "<Keyboard>/z",
+                    "id": "4a935586-4ef9-48d8-a70b-5fae0145cacd",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

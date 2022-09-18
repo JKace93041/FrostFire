@@ -5181,7 +5181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: c1ca244e310bd9f40aac43a6bb10f0c4,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -5192,10 +5192,86 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1725315460}
+        m_TargetAssemblyTypeName: MovementZ, Assembly-CSharp
+        m_MethodName: HandleMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6a25517a-03a2-402f-bff0-b050a5e578d4
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7a1e152a-09ad-4be6-ab54-ecb3c82600a5
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aa31c570-4364-4f2e-a7f7-2e8ab88944cc
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6eb9de97-dda5-4250-a7fa-76206a255c5a
+    m_ActionName: Player/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68ab6f2e-a079-4052-b5e8-38130bd70196
+    m_ActionName: Player/Shoot[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f1b12180-73a0-4891-994f-3899c7f660d0
+    m_ActionName: Player/Dodge[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebad0640-636e-4ce3-b582-ce034e5261b5
+    m_ActionName: Player/SwitchMap[/Keyboard/z]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1725315460}
+        m_TargetAssemblyTypeName: MovementZ, Assembly-CSharp
+        m_MethodName: HandleMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a85f92d9-faee-49b3-8846-a203f479db70
+    m_ActionName: MageMode/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b24a9fb-2975-4292-ba60-98f57fbccdde
+    m_ActionName: MageMode/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c94b407-8897-469b-a45b-ad542e7c1bfb
+    m_ActionName: MageMode/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d05a5eb-25b0-47b2-b3bf-b8374c2db550
+    m_ActionName: MageMode/Shoot[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3c999e02-728e-4e5b-a80e-a27bb87692ed
+    m_ActionName: MageMode/Blink[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bb68158f-7792-42e8-82f6-18ddb876b806
+    m_ActionName: MageMode/SwitchMap[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: f93497a6-473c-4544-aeb7-880acd01d6b2
+  m_DefaultActionMap: MageMode
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!95 &1725315457
@@ -5809,7 +5885,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36762017
+      value: 0.2546227
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}

@@ -216,7 +216,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""PlayerMageMode"",
+            ""name"": ""MageMode"",
             ""id"": ""950f40ca-adae-4044-95c8-5bb747b414a7"",
             ""actions"": [
                 {
@@ -267,7 +267,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""SwitchMap"",
                     ""type"": ""Button"",
-                    ""id"": ""ff4d598c-8819-4b0a-a7b5-ca43f3e144e8"",
+                    ""id"": ""bb68158f-7792-42e8-82f6-18ddb876b806"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -376,8 +376,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a7d82e6-b34d-4c5b-96ae-e1d089ed1312"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""id"": ""4a935586-4ef9-48d8-a70b-5fae0145cacd"",
+                    ""path"": ""<Keyboard>/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -399,14 +399,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         m_Player_SwitchMap = m_Player.FindAction("SwitchMap", throwIfNotFound: true);
-        // PlayerMageMode
-        m_PlayerMageMode = asset.FindActionMap("PlayerMageMode", throwIfNotFound: true);
-        m_PlayerMageMode_Move = m_PlayerMageMode.FindAction("Move", throwIfNotFound: true);
-        m_PlayerMageMode_Look = m_PlayerMageMode.FindAction("Look", throwIfNotFound: true);
-        m_PlayerMageMode_Jump = m_PlayerMageMode.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerMageMode_Shoot = m_PlayerMageMode.FindAction("Shoot", throwIfNotFound: true);
-        m_PlayerMageMode_Blink = m_PlayerMageMode.FindAction("Blink", throwIfNotFound: true);
-        m_PlayerMageMode_SwitchMap = m_PlayerMageMode.FindAction("SwitchMap", throwIfNotFound: true);
+        // MageMode
+        m_MageMode = asset.FindActionMap("MageMode", throwIfNotFound: true);
+        m_MageMode_Move = m_MageMode.FindAction("Move", throwIfNotFound: true);
+        m_MageMode_Look = m_MageMode.FindAction("Look", throwIfNotFound: true);
+        m_MageMode_Jump = m_MageMode.FindAction("Jump", throwIfNotFound: true);
+        m_MageMode_Shoot = m_MageMode.FindAction("Shoot", throwIfNotFound: true);
+        m_MageMode_Blink = m_MageMode.FindAction("Blink", throwIfNotFound: true);
+        m_MageMode_SwitchMap = m_MageMode.FindAction("SwitchMap", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -544,54 +544,54 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // PlayerMageMode
-    private readonly InputActionMap m_PlayerMageMode;
-    private IPlayerMageModeActions m_PlayerMageModeActionsCallbackInterface;
-    private readonly InputAction m_PlayerMageMode_Move;
-    private readonly InputAction m_PlayerMageMode_Look;
-    private readonly InputAction m_PlayerMageMode_Jump;
-    private readonly InputAction m_PlayerMageMode_Shoot;
-    private readonly InputAction m_PlayerMageMode_Blink;
-    private readonly InputAction m_PlayerMageMode_SwitchMap;
-    public struct PlayerMageModeActions
+    // MageMode
+    private readonly InputActionMap m_MageMode;
+    private IMageModeActions m_MageModeActionsCallbackInterface;
+    private readonly InputAction m_MageMode_Move;
+    private readonly InputAction m_MageMode_Look;
+    private readonly InputAction m_MageMode_Jump;
+    private readonly InputAction m_MageMode_Shoot;
+    private readonly InputAction m_MageMode_Blink;
+    private readonly InputAction m_MageMode_SwitchMap;
+    public struct MageModeActions
     {
         private @PlayerControls m_Wrapper;
-        public PlayerMageModeActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerMageMode_Move;
-        public InputAction @Look => m_Wrapper.m_PlayerMageMode_Look;
-        public InputAction @Jump => m_Wrapper.m_PlayerMageMode_Jump;
-        public InputAction @Shoot => m_Wrapper.m_PlayerMageMode_Shoot;
-        public InputAction @Blink => m_Wrapper.m_PlayerMageMode_Blink;
-        public InputAction @SwitchMap => m_Wrapper.m_PlayerMageMode_SwitchMap;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerMageMode; }
+        public MageModeActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_MageMode_Move;
+        public InputAction @Look => m_Wrapper.m_MageMode_Look;
+        public InputAction @Jump => m_Wrapper.m_MageMode_Jump;
+        public InputAction @Shoot => m_Wrapper.m_MageMode_Shoot;
+        public InputAction @Blink => m_Wrapper.m_MageMode_Blink;
+        public InputAction @SwitchMap => m_Wrapper.m_MageMode_SwitchMap;
+        public InputActionMap Get() { return m_Wrapper.m_MageMode; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerMageModeActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerMageModeActions instance)
+        public static implicit operator InputActionMap(MageModeActions set) { return set.Get(); }
+        public void SetCallbacks(IMageModeActions instance)
         {
-            if (m_Wrapper.m_PlayerMageModeActionsCallbackInterface != null)
+            if (m_Wrapper.m_MageModeActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnMove;
-                @Look.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnLook;
-                @Jump.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnJump;
-                @Shoot.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnShoot;
-                @Blink.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
-                @Blink.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
-                @Blink.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnBlink;
-                @SwitchMap.started -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
-                @SwitchMap.performed -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
-                @SwitchMap.canceled -= m_Wrapper.m_PlayerMageModeActionsCallbackInterface.OnSwitchMap;
+                @Move.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnMove;
+                @Look.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnLook;
+                @Jump.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnJump;
+                @Shoot.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnShoot;
+                @Blink.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnBlink;
+                @Blink.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnBlink;
+                @Blink.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnBlink;
+                @SwitchMap.started -= m_Wrapper.m_MageModeActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.performed -= m_Wrapper.m_MageModeActionsCallbackInterface.OnSwitchMap;
+                @SwitchMap.canceled -= m_Wrapper.m_MageModeActionsCallbackInterface.OnSwitchMap;
             }
-            m_Wrapper.m_PlayerMageModeActionsCallbackInterface = instance;
+            m_Wrapper.m_MageModeActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -615,7 +615,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PlayerMageModeActions @PlayerMageMode => new PlayerMageModeActions(this);
+    public MageModeActions @MageMode => new MageModeActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -626,7 +626,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnDodge(InputAction.CallbackContext context);
         void OnSwitchMap(InputAction.CallbackContext context);
     }
-    public interface IPlayerMageModeActions
+    public interface IMageModeActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);

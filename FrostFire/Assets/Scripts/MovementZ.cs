@@ -8,8 +8,9 @@ public class MovementZ : MonoBehaviour
 {
     public AnimatorManager animatorManager;
     InputManager inputManager;
-    private PlayerInput PlayerInput;
+    private PlayerInput playerInput;
     private InputAction moveAction;
+    private InputAction move1Action;
     private InputAction jumpAction;
     private InputAction dodgeAction;
     private InputAction shootAction;
@@ -32,6 +33,7 @@ public class MovementZ : MonoBehaviour
     private float arrowMissDistance = 25f;
     public GameObject arrowPrefab;
     //public Transform spawnpoint;
+    
     public Transform bowTransform;
     public Transform arrowParent;
     
@@ -43,14 +45,18 @@ public class MovementZ : MonoBehaviour
        inputManager = GetComponent<InputManager>();
         animatorManager = GetComponent<AnimatorManager>();
         characterController = GetComponent<CharacterController>();
-        PlayerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
+         
         cameraObject = Camera.main.transform;
-        jumpAction = PlayerInput.actions["Jump"];
-        moveAction = PlayerInput.actions["Move"];
-        dodgeAction = PlayerInput.actions["Dodge"];
-        shootAction = PlayerInput.actions["Shoot"];
-        aimAction = PlayerInput.actions["Aim"];
-        switchAction = PlayerInput.actions["SwitchMap"];
+        jumpAction = playerInput.actions["Jump"];
+        moveAction = playerInput.actions["Move"];
+        //move1Action = playerInput.actions["Move1"];
+        //move1Action = moveAction;
+        dodgeAction = playerInput.actions["Dodge"];
+        shootAction = playerInput.actions["Shoot"];
+        aimAction = playerInput.actions["Aim"];
+        switchAction = playerInput.actions["SwitchMap"];
+        //playerInput.actions.FindActionMap("MageMode").Disable();
 
 
        
@@ -58,7 +64,8 @@ public class MovementZ : MonoBehaviour
     }
     private void OnEnable()
     {
-        switchAction.performed += SwitchMap;
+     
+        //switchAction.performed += _ => SwitchMap();
         aimAction.performed += _ => Aim();
         aimAction.canceled += _ => StopAim();
         shootAction.performed += _ => ShootBow();
@@ -70,32 +77,40 @@ public class MovementZ : MonoBehaviour
 
     }
 
-    private void SwitchMap(InputAction.CallbackContext context)
+    private void SwitchMap()
     {
-        
+        //playerInput.SwitchCurrentActionMap("MageMode");
         if (controlswitch)
 
         {
+            playerInput.SwitchCurrentActionMap("Player");
+            //playerInput.actions.FindActionMap("Player").Enable();
+            //playerInput.actions.FindActionMap("MageMode").Disable();
 
-            PlayerInput.SwitchCurrentActionMap("Player");
             controlswitch = false;
 
         }
         else 
         {
-            PlayerInput.SwitchCurrentActionMap("PlayerMageMode");
+            playerInput.SwitchCurrentActionMap("MageMode");
+
+            //playerInput.actions.FindActionMap("MageMode").Enable();
+            //playerInput.actions.FindActionMap("Player").Disable();
+
 
             controlswitch = true;
 
-          
+
 
         }
-       
+
     }
 
     private void OnDisable()
     {
-        switchAction.performed -= SwitchMap;
+        
+
+      /*  switchAction.performed -= _ => SwitchMap()*/;
         aimAction.performed -= _ => Aim();
         aimAction.canceled -= _ => StopAim();
         shootAction.canceled -= _ => ShootBow();
@@ -139,7 +154,7 @@ public class MovementZ : MonoBehaviour
         }
     private void Update()
     {
-        print(PlayerInput.currentActionMap.ToString());
+        print(playerInput.currentActionMap.ToString());
     }
     private void ShootBow()
     {
@@ -213,7 +228,7 @@ public class MovementZ : MonoBehaviour
 
     }
 
-    private void HandleMovement()
+    public void HandleMovement()
     {
 
         if (isJumping)
