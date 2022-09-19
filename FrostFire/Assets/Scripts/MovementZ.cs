@@ -349,22 +349,22 @@ public class MovementZ : MonoBehaviour
     {
 
         isJumping = inputManager.Jump_Input;
-        
-            if (jumpAction.triggered &&groundedPlayer)
-            {
-                
 
-                jumpingVelocity = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-                playerVelocity = move2Direction;
-                playerVelocity.y = jumpingVelocity;
-                animatorManager.animator.CrossFade(animatorManager.jumpAnimation, animatorManager.animationPlayTransition);
+        if (jumpAction.triggered && groundedPlayer)
+        {
+
+
+            jumpingVelocity = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerVelocity = move2Direction;
+            playerVelocity.y = jumpingVelocity;
+            animatorManager.animator.CrossFade(animatorManager.jumpAnimation, animatorManager.animationPlayTransition);
             if (inputManager.Jump_Input)
             {
                 return;
             }
         }
-            inputManager.Jump_Input = false;
-        
+        inputManager.Jump_Input = false;
+
 
 
     }

@@ -5271,7 +5271,7 @@ MonoBehaviour:
     m_ActionName: MageMode/SwitchMap[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: MageMode
+  m_DefaultActionMap: f93497a6-473c-4544-aeb7-880acd01d6b2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!95 &1725315457
@@ -5885,7 +5885,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2546227
+      value: 0.23914114
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
