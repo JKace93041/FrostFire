@@ -332,20 +332,27 @@ public class MovementZ : MonoBehaviour
         if (Input != Vector2.zero || animatorManager.isAiming)
         {
 
-            float targetAngle = Mathf.Atan2(Input.x, Input.y) * Mathf.Rad2Deg + cameraObject.eulerAngles.y;
-            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
-            
-            
+            //float targetAngle = Mathf.Atan2(Input.x, Input.y) * Mathf.Rad2Deg + cameraObject.eulerAngles.y;
+            //Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            //if (animatorManager.isAiming)
+            //{
+                Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
+
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            //}
+
             //Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
-          
+
 
             //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-           
 
-      
+
+
         }
-       
+
 
 
 
