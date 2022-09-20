@@ -82,7 +82,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SwitchMap"",
+                    ""name"": ""SpellCast"",
                     ""type"": ""Button"",
                     ""id"": ""ebad0640-636e-4ce3-b582-ce034e5261b5"",
                     ""expectedControlType"": ""Button"",
@@ -209,7 +209,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SwitchMap"",
+                    ""action"": ""SpellCast"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -398,7 +398,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
-        m_Player_SwitchMap = m_Player.FindAction("SwitchMap", throwIfNotFound: true);
+        m_Player_SpellCast = m_Player.FindAction("SpellCast", throwIfNotFound: true);
         // MageMode
         m_MageMode = asset.FindActionMap("MageMode", throwIfNotFound: true);
         m_MageMode_Move = m_MageMode.FindAction("Move", throwIfNotFound: true);
@@ -472,7 +472,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Dodge;
-    private readonly InputAction m_Player_SwitchMap;
+    private readonly InputAction m_Player_SpellCast;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -483,7 +483,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
-        public InputAction @SwitchMap => m_Wrapper.m_Player_SwitchMap;
+        public InputAction @SpellCast => m_Wrapper.m_Player_SpellCast;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -511,9 +511,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dodge.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
                 @Dodge.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDodge;
-                @SwitchMap.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
-                @SwitchMap.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
-                @SwitchMap.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchMap;
+                @SpellCast.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellCast;
+                @SpellCast.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellCast;
+                @SpellCast.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpellCast;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -536,9 +536,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dodge.started += instance.OnDodge;
                 @Dodge.performed += instance.OnDodge;
                 @Dodge.canceled += instance.OnDodge;
-                @SwitchMap.started += instance.OnSwitchMap;
-                @SwitchMap.performed += instance.OnSwitchMap;
-                @SwitchMap.canceled += instance.OnSwitchMap;
+                @SpellCast.started += instance.OnSpellCast;
+                @SpellCast.performed += instance.OnSpellCast;
+                @SpellCast.canceled += instance.OnSpellCast;
             }
         }
     }
@@ -624,7 +624,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnDodge(InputAction.CallbackContext context);
-        void OnSwitchMap(InputAction.CallbackContext context);
+        void OnSpellCast(InputAction.CallbackContext context);
     }
     public interface IMageModeActions
     {

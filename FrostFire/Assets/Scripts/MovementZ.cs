@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class MovementZ : MonoBehaviour
 {
+    public Camera cam;
+    //public Transform fireSpellPoint;
+    public GameObject orb;
     public AnimatorManager animatorManager;
     InputManager inputManager;
     private PlayerInput playerInput;
@@ -14,6 +17,7 @@ public class MovementZ : MonoBehaviour
     private InputAction jumpAction;
     private InputAction dodgeAction;
     private InputAction shootAction;
+    private InputAction spellCastAction;
     private InputAction aimAction;
     private InputAction switchAction;
     Vector3 move2Direction;
@@ -39,7 +43,10 @@ public class MovementZ : MonoBehaviour
     
     private InputActionReference movementContol;
     CharacterController characterController;
-    
+    public bool leftHand;
+    public Transform LHspellFirePoint;
+    public Transform RHspellFirePoint;
+
     private void Awake()
    {
        inputManager = GetComponent<InputManager>();
@@ -54,6 +61,7 @@ public class MovementZ : MonoBehaviour
         //move1Action = moveAction;
         dodgeAction = playerInput.actions["Dodge"];
         shootAction = playerInput.actions["Shoot"];
+        spellCastAction = playerInput.actions["SpellCast"];
         aimAction = playerInput.actions["Aim"];
         switchAction = playerInput.actions["SwitchMap"];
         //playerInput.actions.FindActionMap("MageMode").Disable();
@@ -174,6 +182,49 @@ public class MovementZ : MonoBehaviour
         }
       
 
+
+    }
+
+    public void HandleSpellCast()
+    {
+        Vector3 destination;
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
+        RaycastHit hit;
+
+        if(spellCastAction.triggered && groundedPlayer && !animatorManager.isAiming)
+        {
+            if (Physics.Raycast(ray, out hit))
+            {
+                destination = hit.point;
+            }
+            else
+            {
+                destination = ray.GetPoint(100);
+
+            }
+            animatorManager.animator.SetBool("isSpellCasting", true);
+
+            if (animatorManager.animator.GetBool("isSpellCasting"))
+            {
+
+                if (leftHand)
+                {
+                    leftHand = false;
+                    CreateOrb(LHspellFirePoint);
+                }
+                if (!leftHand)
+                {
+                    leftHand = true;
+                    CreateOrb(RHspellFirePoint);
+
+                }
+            }
+
+        }
+    }
+    public void CreateOrb(Transform fireSpellPoint)
+    {
+        var projectileObj = Instantiate(orb, fireSpellPoint.position, Quaternion.identity) as GameObject;
 
     }
     public void ThrowArrow()
@@ -329,18 +380,18 @@ public class MovementZ : MonoBehaviour
         //{
         //    return;
         //}
-        if (Input != Vector2.zero || animatorManager.isAiming)
+        if (Input != Vector2.zero && !animatorManager.isAiming)
         {
 
-            //float targetAngle = Mathf.Atan2(Input.x, Input.y) * Mathf.Rad2Deg + cameraObject.eulerAngles.y;
-            //Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            float targetAngle = Mathf.Atan2(Input.x, Input.y) * Mathf.Rad2Deg + cameraObject.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
             //if (animatorManager.isAiming)
             //{
-                Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
+            //Quaternion targetRotation = Quaternion.Euler(0, cameraObject.eulerAngles.y, 0);
 
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             //}
 
@@ -351,6 +402,14 @@ public class MovementZ : MonoBehaviour
 
 
 
+        }
+        else if (animatorManager.isAiming && Input !=Vector2.zero)
+        {
+            Quaternion targetRotation = Quaternion.Euler(cameraObject.eulerAngles.x, cameraObject.eulerAngles.y, 0);
+
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            
         }
 
 

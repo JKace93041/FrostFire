@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
     public bool Aim_Input;
     public bool Shoot_Input;
     private InputAction aimAction;
-
+    bool SpellCast_Input;
 
     private void Awake()
     {
@@ -40,9 +40,8 @@ public class InputManager : MonoBehaviour
        
             controls.Player.Move.performed += ctx => Input = ctx.ReadValue<Vector2>();
             controls.MageMode.Move.performed += ctx => Input = ctx.ReadValue<Vector2>();
-            controls.MageMode.SwitchMap.performed += EnterPlayerMode;
-            controls.Player.SwitchMap.performed += EnterMageMode;
-          
+            //controls.MageMode.SwitchMap.performed += EnterPlayerMode;
+            controls.Player.SpellCast.performed += _ => SpellCast_Input = true;                      
             controls.Player.Jump.performed += ctx => Jump_Input = true;
             controls.Player.Dodge.performed += ctx => Dodge_Input = true;
             controls.Player.Shoot.performed += ctx => Shoot_Input = true;
@@ -85,8 +84,8 @@ public class InputManager : MonoBehaviour
         
         controls.Disable();
 
-       controls.MageMode.SwitchMap.performed -= EnterPlayerMode;
-        controls.Player.SwitchMap.performed -= EnterMageMode;
+       //controls.MageMode.SwitchMap.performed -= EnterPlayerMode;
+       // controls.Player.SwitchMap.performed -= EnterMageMode;
 
 
     }
@@ -166,6 +165,16 @@ public class InputManager : MonoBehaviour
         
 
 
+
+    }
+    private void HandleSpellCastInput()
+    {
+
+        if (SpellCast_Input)
+        {
+            SpellCast_Input = false;
+            movementZ.HandleSpellCast();
+        }
 
     }
 

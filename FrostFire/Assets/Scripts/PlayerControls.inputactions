@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchMap",
+                    "name": "SpellCast",
                     "type": "Button",
                     "id": "ebad0640-636e-4ce3-b582-ce034e5261b5",
                     "expectedControlType": "Button",
@@ -187,7 +187,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwitchMap",
+                    "action": "SpellCast",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

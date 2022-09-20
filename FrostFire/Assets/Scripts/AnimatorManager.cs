@@ -6,6 +6,8 @@ public class AnimatorManager : MonoBehaviour
 {
     public bool isAiming = true;
     public bool isShooting = true;
+        public bool isSpellCasting = true;
+    public int lefthandHash;
    public  Animator animator;
     private MovementZ movementZ;
     int horizontalParameterID;
@@ -28,6 +30,7 @@ public class AnimatorManager : MonoBehaviour
         jumpAnimation = Animator.StringToHash("Jump");
         dodgeAnimation = Animator.StringToHash("Dodge");
         recoilAnimation = Animator.StringToHash("Standing Aim Recoil");
+        lefthandHash = Animator.StringToHash("LeftHand");
         movementZ = GetComponent<MovementZ>();
     }
     public void ControlAnimatorValues(float horizontalMovement, float verticalMovement)
