@@ -3740,7 +3740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &957752187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5271,7 +5271,7 @@ MonoBehaviour:
     m_ActionName: MageMode/SwitchMap[/Keyboard/z]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: f93497a6-473c-4544-aeb7-880acd01d6b2
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!95 &1725315457
@@ -5406,6 +5406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14cc485c6e185f444a32dc8402b2b732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 1147942144}
+  orb: {fileID: 7070826553151954719, guid: b78804cbb2e509b438d3213812e7bbdc, type: 3}
   animatorManager: {fileID: 1725315463}
   groundedPlayer: 0
   Input: {x: 0, y: 0}
@@ -5420,6 +5422,9 @@ MonoBehaviour:
     type: 3}
   bowTransform: {fileID: 1182181036}
   arrowParent: {fileID: 1838879211}
+  leftHand: 0
+  LHspellFirePoint: {fileID: 1039222811}
+  RHspellFirePoint: {fileID: 720308080}
 --- !u!114 &1725315461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,6 +5445,7 @@ MonoBehaviour:
   Dodge_Input: 0
   Aim_Input: 0
   Shoot_Input: 0
+  SpellCast_Input: 0
 --- !u!114 &1725315462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,6 +5472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAiming: 0
   isShooting: 0
+  isSpellCasting: 1
+  lefthandHash: 0
   animator: {fileID: 1725315457}
   jumpAnimation: 0
   dodgeAnimation: 0
@@ -5885,7 +5893,7 @@ PrefabInstance:
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.23914114
+      value: 0.43874806
       objectReference: {fileID: 0}
     - target: {fileID: 9054737104855716578, guid: d8b4b4f7bd55ab04b851cdb9e8584c71,
         type: 3}

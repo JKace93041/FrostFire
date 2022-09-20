@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
     public bool Aim_Input;
     public bool Shoot_Input;
     private InputAction aimAction;
-    bool SpellCast_Input;
+   public bool SpellCast_Input;
 
     private void Awake()
     {
@@ -125,6 +125,7 @@ public class InputManager : MonoBehaviour
         HandleMovement();
         HandleJumpingInput();
         HandleDodgeInput();
+        HandleSpellCastInput();
         //Aim();
         //StopAim();
         

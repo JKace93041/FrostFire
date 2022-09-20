@@ -78,7 +78,7 @@ public class MovementZ : MonoBehaviour
         aimAction.canceled += _ => StopAim();
         shootAction.performed += _ => ShootBow();
         shootAction.canceled += _ => animatorManager.animator.SetBool("isShooting", false);
-
+        spellCastAction.canceled += _ => animatorManager.animator.SetBool("isSpellCasting", false);
 
 
 
@@ -123,6 +123,8 @@ public class MovementZ : MonoBehaviour
         aimAction.canceled -= _ => StopAim();
         shootAction.canceled -= _ => ShootBow();
         shootAction.canceled -= _ => animatorManager.animator.SetBool("isShooting", false);
+        spellCastAction.canceled -= _ => animatorManager.animator.SetBool("isSpellCasting", false);
+
 
 
 
@@ -187,12 +189,15 @@ public class MovementZ : MonoBehaviour
 
     public void HandleSpellCast()
     {
+        leftHand = animatorManager.animator.GetBool("LeftHand");
         Vector3 destination;
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f,0.5f,0));
+        Ray ray = cam.ViewportPointToRay(new Vector3(0,0f,0));
         RaycastHit hit;
 
         if(spellCastAction.triggered && groundedPlayer && !animatorManager.isAiming)
         {
+            animatorManager.animator.SetBool("isSpellCasting", true);
+
             if (Physics.Raycast(ray, out hit))
             {
                 destination = hit.point;
@@ -202,7 +207,7 @@ public class MovementZ : MonoBehaviour
                 destination = ray.GetPoint(100);
 
             }
-            animatorManager.animator.SetBool("isSpellCasting", true);
+          
 
             if (animatorManager.animator.GetBool("isSpellCasting"))
             {
@@ -219,7 +224,8 @@ public class MovementZ : MonoBehaviour
 
                 }
             }
-
+            inputManager.SpellCast_Input = false;
+           
         }
     }
     public void CreateOrb(Transform fireSpellPoint)
