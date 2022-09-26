@@ -57,4 +57,7 @@ public class SwitchVcam : MonoBehaviour
         aimCanvas.enabled = false;
         thirdPersonCanvas.enabled = true;
     }
+
+
+
 }
