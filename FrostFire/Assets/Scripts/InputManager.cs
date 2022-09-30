@@ -57,8 +57,8 @@ public class InputManager : MonoBehaviour
     {
         //playerInput.actions.FindActionMap("MageMode").Enable();
         //playerInput.actions.FindActionMap("Player").Disable();
-        playerInput.SwitchCurrentActionMap("MageMode");
-        print(playerInput.currentActionMap.ToString());
+        //playerInput.SwitchCurrentActionMap("MageMode");
+        //print(playerInput.currentActionMap.ToString());
 
         print("hi");
 
@@ -66,8 +66,8 @@ public class InputManager : MonoBehaviour
 
     private void EnterPlayerMode(InputAction.CallbackContext context)
     {
-        playerInput.SwitchCurrentActionMap("Player");
-        print(playerInput.currentActionMap.ToString());
+        //playerInput.SwitchCurrentActionMap("Player");
+        //print(playerInput.currentActionMap.ToString());
 
         //    playerInput.actions.FindActionMap("Player").Enable();
 

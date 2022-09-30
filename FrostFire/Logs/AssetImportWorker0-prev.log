@@ -1,0 +1,225 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.7f1 (24e8595d6d43) revision 2418777'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'en' Physical Memory: 14188 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/jt366/Music/FrostFire/FrostFire
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58690
+Successfully changed project path to: C:/Users/jt366/Music/FrostFire/FrostFire
+C:/Users/jt366/Music/FrostFire/FrostFire
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 94.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.7f1 (24e8595d6d43)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/jt366/Music/FrostFire/FrostFire/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3050 Ti Laptop GPU (ID=0x25e0)
+    Vendor:   NVIDIA
+    VRAM:     3990 MB
+    Driver:   31.0.15.1694
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005979 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 93.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.566 seconds
+Domain Reload Profiling:
+	ReloadAssembly (567ms)
+		BeginReloadAssembly (62ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (410ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (83ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (19ms)
+			SetupLoadedEditorAssemblies (265ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (94ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (122ms)
+				ProcessInitializeOnLoadMethodAttributes (40ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007181 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jt366\Music\FrostFire\FrostFire\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jt366\Music\FrostFire\FrostFire\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 100.99 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.190 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1190ms)
+		BeginReloadAssembly (97ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (995ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (228ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (593ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (101ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (307ms)
+				ProcessInitializeOnLoadMethodAttributes (74ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (4ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5712 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 51 unused Assets / (0.8 MB). Loaded Objects now: 6168.
+Memory consumption went from 222.5 MB to 221.8 MB.
+Total: 4.461200 ms (FindLiveObjects: 0.515100 ms CreateObjectMapping: 0.216700 ms MarkObjects: 3.399500 ms  DeleteObjects: 0.328600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1333901.433164 seconds.
+  path: Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerInputController.cs
+  artifactKey: Guid(1e24a0b0f2e735e49babc1ab8df99dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerInputController.cs using Guid(1e24a0b0f2e735e49babc1ab8df99dba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f18b4c7c64e1a0cc547d20c37e658e01') in 0.033907 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/ExplosiveLLC/SuperCharacterController/Player.prefab
+  artifactKey: Guid(0241e293f88c9ba4683c927a85520fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExplosiveLLC/SuperCharacterController/Player.prefab using Guid(0241e293f88c9ba4683c927a85520fed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9652df11f3710ef58f99480aa49f5ed') in 0.217597 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 46.638452 seconds.
+  path: Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerCamera.cs
+  artifactKey: Guid(3ded0ea888fa27f4e8fa24127954a075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerCamera.cs using Guid(3ded0ea888fa27f4e8fa24127954a075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddbb1720e75d8c1b3f219aeb108cf8b2') in 0.006752 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.662023 seconds.
+  path: Assets/Scripts/OldCode/PlayerController.cs
+  artifactKey: Guid(01526198c2774084f9c99ea5207966d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/OldCode/PlayerController.cs using Guid(01526198c2774084f9c99ea5207966d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84e0e2c17ca33675752c84c56c1dd0ac') in 0.006318 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.759138 seconds.
+  path: Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerMachineDebug.cs
+  artifactKey: Guid(1bc22e1ce9f6a3848b9315c3a9afab7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerMachineDebug.cs using Guid(1bc22e1ce9f6a3848b9315c3a9afab7a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '498c739a3b69a70bb137c43c6798fb05') in 0.006581 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.392298 seconds.
+  path: Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerMachine.cs
+  artifactKey: Guid(77885e605d1ea764a98ac9b895a60799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ExplosiveLLC/SuperCharacterController/Scripts/PlayerMachine.cs using Guid(77885e605d1ea764a98ac9b895a60799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54466ccaf678e2808569bf716a7dd604') in 0.006543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.371418 seconds.
+  path: Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Scenes/Anywhere Door/PlayerLookAt.cs
+  artifactKey: Guid(72a83c61f88104a25b325c58327605b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Scenes/Anywhere Door/PlayerLookAt.cs using Guid(72a83c61f88104a25b325c58327605b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf7e768e6c3cbf25750aa477178882e7') in 0.006918 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.470124 seconds.
+  path: Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMove.cs
+  artifactKey: Guid(fa14cc4c274b78b4c820064214bdbb60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMove.cs using Guid(fa14cc4c274b78b4c820064214bdbb60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5a6d7d3e11c9f3b0764e3192ccdb75b') in 0.006882 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.470600 seconds.
+  path: Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Scenes/Anywhere Door/PlayerMovement.cs
+  artifactKey: Guid(75e8c05fb2e3047bdb20258b4e40d88c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Scenes/Anywhere Door/PlayerMovement.cs using Guid(75e8c05fb2e3047bdb20258b4e40d88c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2971bfa615fb583b2a827152786f0e0') in 0.006854 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.539029 seconds.
+  path: Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMoveOnSphere.cs
+  artifactKey: Guid(85b757e40164bd3408008c7df6b949d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMoveOnSphere.cs using Guid(85b757e40164bd3408008c7df6b949d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57de798f9b357550c21f9da007773c0d') in 0.005656 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.413950 seconds.
+  path: Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMovePhysics.cs
+  artifactKey: Guid(73e68a7cb19ab0142b14f1d5b83e3bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/Cinemachine/2.8.6/Cinemachine Example Scenes/Shared/Scripts/PlayerMovePhysics.cs using Guid(73e68a7cb19ab0142b14f1d5b83e3bf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b93dfc46cd3656cd627c01461fb773fd') in 0.006915 seconds 

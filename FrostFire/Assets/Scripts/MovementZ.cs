@@ -11,7 +11,7 @@ public class MovementZ : MonoBehaviour
     public GameObject orb;
     public AnimatorManager animatorManager;
     InputManager inputManager;
-    private PlayerInput playerInput;
+    private PlayerInput playerInput ;
     private InputAction moveAction;
     private InputAction move1Action;
     private InputAction jumpAction;
@@ -63,7 +63,7 @@ public class MovementZ : MonoBehaviour
         shootAction = playerInput.actions["Shoot"];
         spellCastAction = playerInput.actions["SpellCast"];
         aimAction = playerInput.actions["Aim"];
-        switchAction = playerInput.actions["SwitchMap"];
+        //switchAction = playerInput.actions["SwitchMap"];
         //playerInput.actions.FindActionMap("MageMode").Disable();
 
 
@@ -91,7 +91,7 @@ public class MovementZ : MonoBehaviour
         if (controlswitch)
 
         {
-            playerInput.SwitchCurrentActionMap("Player");
+            //playerInput.SwitchCurrentActionMap("Player");
             //playerInput.actions.FindActionMap("Player").Enable();
             //playerInput.actions.FindActionMap("MageMode").Disable();
 
@@ -100,7 +100,7 @@ public class MovementZ : MonoBehaviour
         }
         else 
         {
-            playerInput.SwitchCurrentActionMap("MageMode");
+            //playerInput.SwitchCurrentActionMap("MageMode");
 
             //playerInput.actions.FindActionMap("MageMode").Enable();
             //playerInput.actions.FindActionMap("Player").Disable();
@@ -164,7 +164,7 @@ public class MovementZ : MonoBehaviour
         }
     private void Update()
     {
-        print(playerInput.currentActionMap.ToString());
+        //print(playerInput.currentActionMap.ToString());
     }
     private void ShootBow()
     {
